@@ -7,6 +7,8 @@ app = Flask(__name__)
 @app.route('/')
 def home_page():
     """Displays The Homepage"""
-    return render_template('home.html',
-                           weather_icon=weather.get_weather(),
-                           news=news.short_list_news())
+    return render_template('testing.html')
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
