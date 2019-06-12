@@ -1,7 +1,6 @@
 import requests
 import pprint
-from PIL import Image
-from io import BytesIO
+import colorgram
 
 
 def get_image_from_name(name):
@@ -33,21 +32,33 @@ def par_image_url():
     print('finish')
 
 
+def get_image_colour():
+    colors = colorgram.extract('input.jpg', 6)
+    list = []
+    for i in colors:
+        row = []
+        row.append(i.rgb.r)
+        row.append(i.rgb.g)
+        row.append(i.rgb.b)
+        print(row)
+        list.append(row)
+    return list
 
-def get_image_colour(url):
-    response = requests.get(url)
-    img = Image.open(BytesIO(response.content))
-    img.show()
-    colors = img.getcolors(256)
-    max_occurence, most_present = 0, 0
-    try:
-        for c in colors:
-            if c[0] > max_occurence:
-                (max_occurence, most_present) = c
-        return most_present
-    except TypeError:
-        raise Exception("Too many colors in the image")
+
+def find_in_list(name):
+    file = open('product.csv', 'r')
+    for i in file:
+        split = i.split(',')
+        if split[0] == name:
+            return split[1]
+
+
+def download_image(name):
+    url = find_in_list(name)
+    img_data = requests.get(url).content
+    with open('input.jpg', 'wb') as handler:
+        handler.write(img_data)
 
 
 if __name__ == '__main__':
-    par_image_url()
+    pprint.pprint(get_image_colour())
