@@ -7,8 +7,13 @@ app = Flask(__name__)
 @app.route('/')
 def home_page():
     """Displays The Homepage"""
-    return render_template('testing.html',
-                           test=2)
+    return render_template('main.html')
+
+
+@app.route('/animation')
+def animation():
+    """Displays The Homepage"""
+    return render_template('main.html')
 
 
 if __name__ == '__main__':
