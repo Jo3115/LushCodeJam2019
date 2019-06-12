@@ -19,9 +19,16 @@ def get_image_from_name():
 def get_image_colour(url):
     response = requests.get(url)
     img = Image.open(BytesIO(response.content))
-    colors_values = img.getcolors(256)
-    for c in colors_values:
-        print(c)
+    img.show()
+    colors = img.getcolors(256)
+    max_occurence, most_present = 0, 0
+    try:
+        for c in colors:
+            if c[0] > max_occurence:
+                (max_occurence, most_present) = c
+        return most_present
+    except TypeError:
+        raise Exception("Too many colors in the image")
 
 
 if __name__ == '__main__':
