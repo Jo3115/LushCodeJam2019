@@ -20,7 +20,8 @@ def get_image_colour(url):
     response = requests.get(url)
     img = Image.open(BytesIO(response.content))
     colors_values = img.getcolors(256)
-    pprint(colors_values)
+    for c in colors_values:
+        print(c)
 
 
 if __name__ == '__main__':
