@@ -4,16 +4,34 @@ from PIL import Image
 from io import BytesIO
 
 
-def get_image_from_name():
+def get_image_from_name(name):
     params={
         'key':'AIzaSyBKV4ru8MuUJmvo3JRf-XhzcwYyBf6bx8M',
         'cx':'015680093206351405511:notwdjcaeve',
-        'q':'lush bath bombs Harajuku'}
-    data = requests.get('https://www.googleapis.com/customsearch/v1?',
-                        params).json()
-    image_url = data['items'][0]['pagemap']['product'][0]['image']
-    print(image_url)
-    return image_url
+        'q':'lush bath bombs '+name}
+    try:
+        data = requests.get('https://www.googleapis.com/customsearch/v1?',
+                            params).json()
+        image_url = data['items'][0]['pagemap']['product'][0]['image']
+        return image_url
+    except:
+        return False
+
+
+def par_image_url():
+    file = open('names.csv', 'r')
+    out = open('product.csv', 'a')
+    for i in file:
+        print(i)
+        image = get_image_from_name(i)
+        print(image)
+        if image is False:
+            pass
+        else:
+            out.write(i+','+image+'\n')
+    file.close()
+    print('finish')
+
 
 
 def get_image_colour(url):
@@ -32,4 +50,4 @@ def get_image_colour(url):
 
 
 if __name__ == '__main__':
-    get_image_colour(get_image_from_name())
+    par_image_url()
