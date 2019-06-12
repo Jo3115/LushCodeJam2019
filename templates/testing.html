@@ -7,6 +7,30 @@
 	<body>
 		<h1>Processing.js Test</h1>
 		<p>This is my first Processing.js web-based sketch:</p>
-		<canvas data-processing-sources="{{ url_for('static', filename='pde/sketch83530.pde') }}"></canvas>
+		<script type="text/processing" data-processing-target="processing-canvas">
+			int time = 0;
+
+			void setup(){
+			  size(600, 600);
+			  noFill();
+			  stroke(255);
+			  colorMode(HSB, 360); 
+			}
+
+			void draw(){
+			  background(0);
+			  for(int i = 0; i < 360; i+= 10){
+				float x = cos(radians(i)) * 100 + width / {{test}};
+				float y = sin(radians(i)) * 100 + height / 2;
+				float w = cos(radians(time + i)) * 200;
+				w = abs(w);
+				stroke(i, 360, 360);   //  色をつけた 
+				fill(i,360,360,100);
+				ellipse(x, y, w, w);
+			  }
+			  time++;
+			}
+		</script>
+<canvas id="processing-canvas"> </canvas>
 	</body>
 </html>
