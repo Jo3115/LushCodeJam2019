@@ -10,5 +10,11 @@ def home_page():
     return render_template('main.html')
 
 
+@app.route('/animation')
+def animation():
+    """Displays The Homepage"""
+    return render_template('main.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True)
