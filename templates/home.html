@@ -1,8 +1,12 @@
 <!DOCTYPE html>
+
 {% extends "layout.html" %}	
 {% block header %}
+
 {% endblock header %}
 {% block fullContent %}
+    <h2 style="color:#000000;text-align:center; position:center;
+    font-family:Comic Sans MS, cursive, sans-serif; font-size: 50px;">#LUSHFALLS</h2>
 	<div class="container">
 		<div class="row">
 			{% for i in images %}
@@ -11,7 +15,8 @@
 					<img class="card-img-top" src="{{ i[1] }}" alt="Card image cap">
 					<div class="card" style="width:100%">
 						<div class="card-body">
-							<h4 class="card-title">{{ i[0] }}</h4>
+							<h4 class="card-title" style="color:#000000;text-align:center; position:center;
+                                font-family:Comic Sans MS, cursive, sans-serif; font-size: 20px;">{{ i[0] }}</h4>
 							<p class="card-text">
 						</div>
 					</div>
