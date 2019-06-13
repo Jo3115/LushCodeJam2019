@@ -1,6 +1,7 @@
 import requests
 import pprint
 import colorgram
+import math
 
 
 def get_image_from_name(name):
@@ -40,9 +41,23 @@ def get_image_colour():
         row.append(i.rgb.r)
         row.append(i.rgb.g)
         row.append(i.rgb.b)
-        print(row)
+        row.append(get_image_note(row))
         list.append(row)
     return list
+
+
+def get_image_note(row):
+    file = open('notes.csv', 'r')
+    closet_note = [1000,'']
+    for i in file:
+        split = i.split(',')
+        note_distance = math.sqrt(abs(((row[0]-int(split[0]))**2)+
+                                      ((row[1]-int(split[1]))**2)+
+                                      ((row[2]-int(split[2]))**2)))
+        if note_distance < closet_note[0]:
+            closet_note = [note_distance, int(split[3].split('\n')[0])]
+    return closet_note[1]
+
 
 
 def find_in_list(name):
