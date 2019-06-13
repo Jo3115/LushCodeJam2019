@@ -41,6 +41,7 @@
 			drops[i].Run();
 			// remove drops that have fallen off the screen
 			if (!drops[i].isAlive()) {
+				drops[i].playNote();
 				drops.splice(i, 1);
 			}
 		}
@@ -58,6 +59,7 @@
 		this.r = item[0];
 		this.g = item[1];
 		this.b = item[2];
+		this.note = item[3];
 		
 		this.Run = function() {
 			this.Update();
@@ -89,6 +91,12 @@
 		// check if drop is still alive or not
 		this.isAlive = function() {
 			return this.y < windowHeight + this.rad;
+		};
+		
+		// plays note
+		this.playNote = function() {
+			var audio = new Audio('static/notes/' + this.note+'.wav');
+			audio.play();
 		};
 	}
 
