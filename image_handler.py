@@ -6,8 +6,8 @@ import math
 
 def get_image_from_name(name):
     params={
-        'key':'AIzaSyBKV4ru8MuUJmvo3JRf-XhzcwYyBf6bx8M',
-        'cx':'015680093206351405511:notwdjcaeve',
+        'key':'',
+        'cx':'',
         'q':'lush bath bombs '+name}
     try:
         data = requests.get('https://www.googleapis.com/customsearch/v1?',
