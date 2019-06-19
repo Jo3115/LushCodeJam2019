@@ -12,7 +12,7 @@ Then activate the virtual environment by typing
 
 You should then see the name of the virtual environment in brackets on the left hand side of the command prompt 
 
-Next we will need in install flask, requests and colourgram, do this as follows:
+Next we will need in install `flask`, `requests` and `colourgram`, do this as follows:
 
 `pip install Flask`
 
@@ -20,7 +20,7 @@ Next we will need in install flask, requests and colourgram, do this as follows:
 
 `pip install colorgram.py`
 
-You should then be to run the program by typing python main.py
+You should then be to run the program by typing `python main.py`
 
 The server will start and you should see Running on http://127.0.0.1:5000/
 
