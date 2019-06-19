@@ -15,7 +15,9 @@ You should then see the name of the virtual environment in brackets on the left 
 Next we will need in install flask, requests and colourgram, do this as follows:
 
 `pip install Flask`
+
 `pip install requests`
+
 `pip install colorgram.py`
 
 You should then be to run the program by typing python main.py
