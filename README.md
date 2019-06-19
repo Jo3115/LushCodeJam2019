@@ -2,15 +2,15 @@
 
 The following instructions assumes that the user has `pip` installed and has `python` setup in the environment path.
 
-Open up the cmd and navigate to the root directory of the project and create a virtual environment by typing 
+Open up the cmd and navigate to the root directory of the project and create a virtual environment: 
 
 `virtualenv venv`
 
-Then activate the virtual environment by typing 
+Then activate the virtual environment: 
 
 `venv\Scripts\activate`
 
-You should then see the name of the virtual environment in brackets on the left hand side of the command prompt 
+You should then see the name of the virtual environment in brackets on the left hand side of the command prompt.
 
 Next we will need in install `flask`, `requests` and `colourgram`, do this as follows:
 
