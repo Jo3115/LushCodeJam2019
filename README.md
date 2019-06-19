@@ -1,6 +1,6 @@
 # LushCodeJam2019
 
-The following instructions assumes that the user has `pip` installed and has python setup in the environment path.
+The following instructions assumes that the user has `pip` installed and has `python` setup in the environment path.
 
 Open up the cmd and navigate to the root directory of the project and create a virtual environment by typing 
 
